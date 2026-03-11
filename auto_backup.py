@@ -67,8 +67,7 @@ def perform_remote_backup():
 
     try:
         # Python artık dosyayı kendi yazmaya çalışmıyor, sadece komutu tetikliyor
-        process = subprocess.run(command, shell=True, stderr=subprocess.PIPE, text=True, encoding="utf-8")
-
+        process = subprocess.run(command, shell=True, stderr=subprocess.PIPE, universal_newlines=True, encoding="utf-8")
         # Eğer işlem başarıyla bittiyse (Return code 0 ise)
         if process.returncode == 0:
             file_size_mb = os.path.getsize(local_backup_path) / (1024 * 1024)
