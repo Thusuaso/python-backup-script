@@ -63,8 +63,7 @@ def perform_remote_backup():
     print(f"[{now.strftime('%Y-%m-%d %H:%M:%S')}] ⏳ Uzak sunucudan yedek çekiliyor... Lütfen bekleyin.")
 
     # ÇÖZÜM: Komutun sonuna -f parametresi ekleyerek dosyayı doğrudan scripter'ın oluşturmasını sağlıyoruz.
-    command = f"python -m mssqlscripter -S {DB_SERVER} -d {DB_NAME} -U {DB_USER} -P \"{DB_PASS}\" --schema-and-data -f \"{local_backup_path}\""
-
+    command = f"python3 -m mssqlscripter -S {DB_SERVER} -d {DB_NAME} -U {DB_USER} -P \"{DB_PASS}\" --schema-and-data -f \"{local_backup_path}\""
     try:
         # Python artık dosyayı kendi yazmaya çalışmıyor, sadece komutu tetikliyor
         process = subprocess.run(command, shell=True, stderr=subprocess.PIPE, universal_newlines=True, encoding="utf-8")
