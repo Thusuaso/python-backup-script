@@ -57,7 +57,7 @@ def perform_remote_backup():
     date_string = now.strftime("%Y_%m_%d_%H%M")
     
     # Kaydedilecek dosyanın tam yolu
-    backup_file_name = f"{DB_NAME}_{date_string}.sql"
+    backup_file_name = f"{DB_NAME}_Gunluk_Yedek.sql"
     local_backup_path = os.path.join(BACKUP_DIR, backup_file_name)
     
     print(f"[{now.strftime('%Y-%m-%d %H:%M:%S')}] ⏳ Uzak sunucudan yedek çekiliyor... Lütfen bekleyin.")
